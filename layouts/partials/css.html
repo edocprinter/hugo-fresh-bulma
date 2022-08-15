@@ -15,7 +15,9 @@
 {{- $paramsStyle := resources.Get $paramsSass | resources.ExecuteAsTemplate "params.sass" . }}
 <!-- resolved into  $paramsSass -->
 <link rel="{{- $paramsStyle }}">
-{{- $css := slice $paramsStyle $sassStyle | resources.Concat "styles.sass" | resources.ToCSS $cssOpts }}
+{{- /* $css := slice $paramsStyle $sassStyle | resources.Concat "styles.sass" | resources.ToCSS $cssOpts */}}
+{{- $css := slice (resources.Get $paramsSass) (resources.Get $sass) | resources.Concat "styles0.sass" | resources.ExecuteAsTemplate "styles.sass" . | resources.ToCSS $cssOpts }}
+
 <link rel="stylesheet" type="text/css" href="{{ $css.RelPermalink }}">
 {{- else }}
 {{- $css := resources.Get $sass | toCSS $cssOpts | minify | fingerprint }}
