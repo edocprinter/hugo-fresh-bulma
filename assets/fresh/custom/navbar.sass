@@ -1,0 +1,60 @@
+//
+// !default => use the value when not defined or null
+// $text prefined text color by bulma
+//
+$box-color: $text !default    /* use bulma $text color */
+$edocbanner-background-color: #ADB96E !default
+//$edocbanner-height: {{ .Site.Params.edocbannerHeight | default "150px" }} !default
+$edocbanner-margin-top: 16px !default
+$edocbanner-border-radius: 10px !default
+//$box-radius: $radius-large !default
+$edocbanner-burger-posright: 8px
+$edocbanner-button-color: #4FC1EA !default
+$edocbanner-buttonlabel-color: #FFFFFF !default
+
+
+//=block mixin defined by bulma
+//%block
+//  &:not(:last-child)
+//    margin-bottom: 1.5rem
+//
+//=block
+//  @extend %block
+
+.navbarbanner-box
+  +block
+  background-color: $edocbanner-background-color
+  border-radius: $edocbanner-border-radius
+  box-shadow: $box-shadow
+  color: $box-color
+  //display: block
+
+  margin-top: $edocbanner-margin-top
+  //padding: $box-padding
+  //box-sizing: content-box
+  display: flex
+  //flex-direction: column
+
+.edocbanner-flexh
+  display: flex
+  flex-direction: row
+
+
+.edocbanner-posmenu
+  position: absolute
+  top: 90%
+  //bottom: 64px
+  right: $edocbanner-burger-posright + 64px
+  //left: 0px
+  padding: 0px
+
+
+.herofig-asbackground
+  background-image: url("#{$navbarbanner-heroimgpath}")
+  background-size: contain
+  background-repeat: no-repeat
+  background-position: center
+  //height: 100%
+  max-width: 540px
+// min-height: 400px
+//padding-bottom: 32px
