@@ -11,10 +11,9 @@
 <link href="{{ $fontUrl }}" rel="stylesheet">
 {{- if $inServerMode }}
 {{- /* $css := resources.Get $sass | toCSS $cssOpts */}}
-{{- $sassStyle := resources.Get $sass }}
-{{- $paramsStyle := resources.Get $paramsSass | resources.ExecuteAsTemplate "params.sass" . }}
+{{- /* $sassStyle := resources.Get $sass */}}
+{{- /* $paramsStyle := resources.Get $paramsSass | resources.ExecuteAsTemplate "params.sass" . */}}
 <!-- resolved into  $paramsSass -->
-<link rel="{{- $paramsStyle }}">
 {{- /* $css := slice $paramsStyle $sassStyle | resources.Concat "styles.sass" | resources.ToCSS $cssOpts */}}
 {{- $css := slice (resources.Get $paramsSass) (resources.Get $sass) | resources.Concat "styles0.sass" | resources.ExecuteAsTemplate "styles.sass" . | resources.ToCSS $cssOpts }}
 
