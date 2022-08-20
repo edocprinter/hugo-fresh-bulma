@@ -1,0 +1,95 @@
+$cardcar-item-width: $feature-card-width
+$cardcar-item-padding-right: 64px
+$cardcar-screenshot-width: $feature-card-width
+$cardcar-count: 4
+$cardcar-more-count: 4
+$cardcar-total-count: $cardcar-count * 2
+$cardcar-total-width: ($cardcar-item-width + $cardcar-item-padding-right) * $cardcar-total-count
+$cardcar-speed: 80 // px per second
+$cardcar-duration: 150s
+//$cardcar-duration: $cardcar-total-width / $cardcar-speed * 1s
+$cardcar-padding: $block-spacing
+$cardcar-height: #{$feature-card-height}
+
+.cardcar
+  height: calc(#{$cardcar-height} + #{$cardcar-padding * 2})
+  padding: $cardcar-padding 0
+  overflow: hidden
+  position: relative
+
+.cardcar-list
+  align-items: stretch
+  animation-duration: $cardcar-duration
+  animation-iteration-count: infinite
+  animation-timing-function: linear
+  display: flex
+  left: 0
+  position: relative
+  top: $cardcar-padding
+
+  animation-name: CardCarousel
+  flex-wrap: nowrap
+
+  &:hover
+    animation-play-state: paused
+
+.cardcar-item
+  flex-grow: 0
+  flex-shrink: 0
+  margin-right: calc(#{$cardcar-item-width - $cardcar-screenshot-width} * 1px)
+  transition-duration: $speed * 2
+  transition-property: box-shadow, transform
+  padding: 4px $cardcar-item-padding-right 4px 0
+
+  &.bd-is-medium
+    font-size: 1.125em
+  &.bd-is-large
+    font-size: 1.25em
+  &.bd-is-huge
+    font-size: 1.5em
+  &:hover
+    box-shadow: 0 1em 1em rgba(black, 0.5)
+    transform: translateY(-0.5em)
+
+.bd-screenshot 
+  align-self: flex-start
+  display: block
+  transition-duration: $speed * 2
+  transition-property: box-shadow, transform
+
+  &, img
+    border-radius: $radius-large
+
+  img
+    display: inline-block
+    height: auto
+    vertical-align: top
+    width: auto
+
+
+@keyframes CardCarousel
+  0%
+    transform: translateX( calc(-0%) )
+  100%
+    transform: translateX( calc(#{-$cardcar-total-width * 1}))
+
+//
+//.cardcar-item:nth-child(1)
+//  animation-delay: 0.0s
+//.cardcar-item:nth-child(2)
+//  animation-delay: 0.5s
+//.cardcar-item:nth-child(3)
+//  animation-delay: 15.0s
+//  animation-duration: 1.0s
+//  animation-play-state: paused
+//  width: 150px
+//  font-size: 2em
+//.cardcar-item:nth-child(4)
+//  animation-delay: 1.5s
+//.cardcar-item:nth-child(5)
+//  animation-delay: 2.0s
+//.cardcar-item:nth-child(6)
+//  animation-delay: 2.5s
+
+
+
