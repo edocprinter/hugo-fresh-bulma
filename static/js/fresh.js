@@ -13,7 +13,7 @@ $(document).ready(function(){
 
             var menu_id = $(this).attr('data-target');
             $(this).toggleClass('is-active');
-            $("#"+menu_id).toggleClass('is-active');
+            $(menu_id).toggleClass('is-active');
             $('.navbar.is-light').toggleClass('is-dark-mobile')
         });
     }

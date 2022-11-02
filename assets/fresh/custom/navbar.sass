@@ -3,14 +3,14 @@
 // $text prefined text color by bulma
 //
 $box-color: $text !default    /* use bulma $text color */
-$edocbanner-background-color: #ADB96E !default
-//$edocbanner-height: {{ .Site.Params.edocbannerHeight | default "150px" }} !default
-$edocbanner-margin-top: 16px !default
-$edocbanner-border-radius: 10px !default
+$navbar-banner-background-color: #ADB96E !default
+//$navbar-banner-height: {{ .Site.Params.navbar-bannerHeight | default "150px" }} !default
+$navbar-banner-margin-top: 16px !default
+$navbar-banner-border-radius: 10px !default
 //$box-radius: $radius-large !default
-$edocbanner-burger-posright: 8px
-$edocbanner-button-color: #4FC1EA !default
-$edocbanner-buttonlabel-color: #FFFFFF !default
+$navbar-banner-burger-posright: 8px
+$navbar-banner-button-color: #4FC1EA !default
+$navbar-banner-buttonlabel-color: #FFFFFF !default
 
 
 //=block mixin defined by bulma
@@ -21,64 +21,65 @@ $edocbanner-buttonlabel-color: #FFFFFF !default
 //=block
 //  @extend %block
 
-.navbarbanner-box
+.navbar-banner-box
   +block
-  background-color: $edocbanner-background-color
-  border-radius: $edocbanner-border-radius
+  background-color: $navbar-banner-background-color
+  border-radius: $navbar-banner-border-radius
   box-shadow: $box-shadow
   color: $box-color
   //display: block
 
-  margin-top: $edocbanner-margin-top
+  margin-top: $navbar-banner-margin-top
   //padding: $box-padding
   //box-sizing: content-box
   display: flex
   //flex-direction: column
 
-.edocbanner-flexh
+.navbar-banner-flexh
   display: flex
   flex-direction: row
 
 
-.edocbanner-posmenu
+.navbar-banner-posmenu
   position: absolute
   top: 90%
   //bottom: 64px
-  right: $edocbanner-burger-posright + 64px
+  right: $navbar-banner-burger-posright + 64px
   //left: 0px
   padding: 0px
 
 
-.edocbanner-posmenu
+.navbar-banner-posmenu
   position: absolute
   top: 90%
   //bottom: 64px
-  right: $edocbanner-burger-posright + 64px
+  right: $navbar-banner-burger-posright + 64px
   //left: 0px
   padding: 0px
 
 +desktop
-  .edocbanner-posmenu
+  .navbar-banner-posmenu
     position: absolute
     top: 65%
-    right: $edocbanner-burger-posright + 32px
+    right: $navbar-banner-burger-posright + 32px
     //left: 0px
     padding: 0px
 
-.navbar > .container.edocbanner-box
+// select .container and .navbar-banner-box whose parent is .navbar
+.navbar > .container.navbar-banner-box
   display: flex
 
 
-.edocbanner-posburger
+.navbar-banner-posburger
   //display: flex
   position: absolute
   //top: 65%
   bottom: 4px
-  right: $edocbanner-burger-posright
+  right: $navbar-banner-burger-posright
   //width: 224px
   padding: 0px
 
-.edocbanner-posright
+.navbar-banner-posright
   position: absolute
   right: 32px
   padding: 0px
@@ -118,8 +119,8 @@ $edocbanner-buttonlabel-color: #FFFFFF !default
   border: 1px solid #e0e0e0
 
   //background: -webkit-linear-gradient(rgba(126,209,238,.70), rgba(126,209,238,1.0))
-  background-color: $edocbanner-button-color
-  color: $edocbanner-buttonlabel-color
+  background-color: $navbar-banner-button-color
+  color: $navbar-banner-buttonlabel-color
 
   //vertical-align: middle
   text-align: center
