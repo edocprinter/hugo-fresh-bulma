@@ -1,4 +1,9 @@
-{{- $inServerMode := .Site.IsServer }}
+{{- $inServerMode := "" }}
+{{- if gt (int (index (split hugo.Version ".") 1)) "120" }}
+  {{ $inServerMode = hugo.IsServer }}
+{{- else }}
+  {{ $inServerMode = .Site.IsServer }}
+{{- end }}
 {{- $sass         := "style.sass" }}
 {{- $paramsSass   := "params.sass" }}
 {{- $cssTarget    := "css/style.css" }}
@@ -15,7 +20,7 @@
 {{- /* $paramsStyle := resources.Get $paramsSass | resources.ExecuteAsTemplate "params.sass" . */}}
 <!-- resolved into  $paramsSass -->
 {{- /* $css := slice $paramsStyle $sassStyle | resources.Concat "styles.sass" | resources.ToCSS $cssOpts */}}
-{{- $css := slice (resources.Get $paramsSass) (resources.Get $sass) | resources.Concat "styles0.sass" | resources.ExecuteAsTemplate "styles.sass" . | resources.ToCSS $cssOpts }}
+{{- $css := slice (resources.Get $paramsSass) (resources.Get $sass) | resources.Concat "styles0.sass" | resources.ExecuteAsTemplate "styles.sass" . | toCSS $cssOpts }}
 
 <link rel="stylesheet" type="text/css" href="{{ $css.RelPermalink }}">
 {{- else }}
